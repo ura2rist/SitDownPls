@@ -24,12 +24,28 @@ module.exports = {
     ],
     module: {
         rules: [
-            { test: /\.css$/i, use: ['style-loader', MiniCssExtractPlugin.loader,'css-loader'] },
+            { 
+                test: /\.css$/i, 
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {}
+                    },
+                    'css-loader'
+                ]
+            },
             { test : /\.(js)$/, use: 'babel-loader' }
         ]
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: `./js/${filename('js')}`
+    },
+    devServer: {
+        historyApiFallback: true,
+        open: true,
+        compress: true,
+        hot: true,
+        port: 3000
     }
 }
