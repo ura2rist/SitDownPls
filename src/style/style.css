@@ -1,3 +1,17 @@
+@import '~normalize.css';
+
+@font-face{
+    font-family:Roboto;
+    font-style:normal;
+    font-weight:400;
+    src:url('../fonts/Roboto-Light.woff2') format("woff2"),
+        url('../fonts/Roboto-Light.woff') format("woff")
+}
+        
 h1 {
     color: red;
+}
+
+body {
+    background-image: url('../img/logo.png');
 }

@@ -29,6 +29,7 @@ module.exports = {
             ]
         })
     ],
+    devtool: isProd ? false : 'source-map',
     module: {
         rules: [
             { 
@@ -36,7 +37,11 @@ module.exports = {
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
-                        options: {}
+                        options: {
+                            publicPath: (resourcePath, context) => {
+                                return path.relative(path.dirname(resourcePath), context) + '/';
+                            }
+                        }
                     },
                     'css-loader'
                 ]
@@ -44,18 +49,30 @@ module.exports = {
             { test: /\.html/, use: 'html-loader' },
             { 
                 test: /\.(?:|gif|png|jpg|jpeg|svg)$/, 
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: '[path][name].[ext]',
-                    }
-                }]
+                type: 'asset/resource',
+            },
+            {
+                test: /\.(js)$/, 
+                exclude: '/node_modules/',
+                generator: {
+                  filename: 'script/[name][ext]'
+                },
+                use: ['babel-loader']
+            },
+            {
+                test: /\.(?:|woff|woff2)$/, 
+                type: 'asset/resource',
+                generator: {
+                  filename: 'fonts/[name][ext]'
+                }
             }
         ]
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: `./js/${filename('js')}`
+        filename: `./js/${filename('js')}`,
+        publicPath: '',
+        assetModuleFilename: `img/${ isDev ? `[name][ext]` : `[name].[contenthash][ext]` }`
     },
     devServer: {
         historyApiFallback: true,
