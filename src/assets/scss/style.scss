@@ -1,0 +1,9 @@
+@import 'fonts';
+
+body {
+  background-color: black;
+  background-image: url('../image/078\ 1.png');
+  & p {
+    padding: 10px;
+  }
+}
