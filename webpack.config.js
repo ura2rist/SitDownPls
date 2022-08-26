@@ -8,6 +8,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const PAGES_PATH = 'src\\pages';
 const BUILD_PATH = 'build';
 const APP_PATH = fs.realpathSync(process.cwd());
+const IMAGE_INLINE_SIZE_LIMIT = parseInt(process.env.IMAGE_INLINE_SIZE_LIMIT, 10) || 8192; // 8 Kb
 
 function pagesList(pagesPath = path.resolve(APP_PATH, PAGES_PATH), filePaths = []) {
   const pages = fs.readdirSync(pagesPath);
@@ -66,8 +67,23 @@ module.exports = {
         },
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/i,
+        test: /\.(png|jpe?g|gif|bmp|svg)$/i,
         type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: IMAGE_INLINE_SIZE_LIMIT,
+          },
+        },
+        generator: {
+          filename: 'image/[name].[contenthash:8][ext]',
+        },
+      },
+      {
+        test: /\.(eot|ttf|woff2?)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name].[contenthash:8][ext]',
+        },
       },
     ],
   },
@@ -75,12 +91,6 @@ module.exports = {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/style.css',
-    }),
-    new CopyWebpackPlugin({
-      patterns: [
-        { from: path.resolve(__dirname, 'src/assets/fonts'), to: path.resolve(__dirname, 'build/fonts') },
-        { from: path.resolve(__dirname, 'src/assets/image'), to: path.resolve(__dirname, 'build/image') },
-      ],
     }),
   ].concat(addHtmlPlugin(pagesList())),
 };
