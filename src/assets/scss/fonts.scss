@@ -1,6 +1,34 @@
 @font-face {
-  font-family: Roboto;
+  font-family: 'Open Sans';
   font-style: normal;
-  font-weight: 400;
-  src: url(../fonts/Roboto-Light.woff2) format('woff2'), url(../fonts/Roboto-Light.woff) format('woff');
+  font-weight: lighter;
+  src: url(../fonts/OpenSans-Light.woff2) format('woff2'), url(../fonts/OpenSans-Light.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: normal;
+  src: url(../fonts/OpenSans-Regular.woff2) format('woff2'), url(../fonts/OpenSans-Regular.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url(../fonts/OpenSans-SemiBold.woff2) format('woff2'), url(../fonts/OpenSans-SemiBold.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: bold;
+  src: url(../fonts/OpenSans-Bold.woff2) format('woff2'), url(../fonts/OpenSans-Bold.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'PlayfairDisplay';
+  font-style: normal;
+  font-weight: 900;
+  src: url(../fonts/PlayfairDisplay-Black.woff2) format('woff2'), url(../fonts/PlayfairDisplay-Black.woff) format('woff');
 }

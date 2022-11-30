@@ -3,7 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 const PAGES_PATH = 'src\\pages';
 const BUILD_PATH = 'build';
@@ -40,57 +40,81 @@ function addHtmlPlugin(pages) {
   return result;
 }
 
-module.exports = {
-  entry: path.resolve(__dirname, './src/main.js'),
-  output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'script/main.js',
-  },
-  module: {
-    rules: [
-      {
-        test: /\.ejs$/i,
-        use: ['html-loader', 'template-ejs-loader'],
-      },
-      {
-        test: /.s[c|a]ss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-      },
-      {
-        test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
+module.exports = (env, args) => {
+  return {
+    entry: path.resolve(__dirname, './src/main.js'),
+    output: {
+      path: path.resolve(__dirname, 'build'),
+      filename: 'script/main.js',
+    },
+    devtool: args.mode === 'development' &&'source-map',
+    module: {
+      rules: [
+        {
+          test: /\.ejs$/i,
+          use: ['html-loader', 'template-ejs-loader'],
+        },
+        {
+          test: /\.s?(c|a)ss$/,
+          use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          }, 
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  autoprefixer({
+                    overrideBrowserslist: ['ie >= 8', 'last 4 version']
+                  })
+                ]
+              }
+            }
+          }, 
+          {
+            loader: 'sass-loader'
+          }],
+        },
+        {
+          test: /\.m?js$/,
+          exclude: /(node_modules|bower_components)/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+            },
           },
         },
-      },
-      {
-        test: /\.(png|jpe?g|gif|bmp|svg)$/i,
-        type: 'asset',
-        parser: {
-          dataUrlCondition: {
-            maxSize: IMAGE_INLINE_SIZE_LIMIT,
+        {
+          test: /\.(png|jpe?g|gif|bmp|svg|ico)$/i,
+          type: 'asset',
+          parser: {
+            dataUrlCondition: {
+              maxSize: IMAGE_INLINE_SIZE_LIMIT,
+            },
+          },
+          generator: {
+            filename: 'image/[name].[contenthash:8][ext]',
           },
         },
-        generator: {
-          filename: 'image/[name].[contenthash:8][ext]',
+        {
+          test: /\.(eot|ttf|woff2?)$/i,
+          type: 'asset/resource',
+          generator: {
+            filename: 'fonts/[name].[contenthash:8][ext]',
+          },
         },
-      },
-      {
-        test: /\.(eot|ttf|woff2?)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: 'fonts/[name].[contenthash:8][ext]',
-        },
-      },
-    ],
-  },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'css/style.css',
-    }),
-  ].concat(addHtmlPlugin(pagesList())),
+      ],
+    },
+    plugins: [
+      new CleanWebpackPlugin(),
+      new MiniCssExtractPlugin({
+        filename: 'css/style.css',
+      }),
+    ].concat(addHtmlPlugin(pagesList())),
+  }
 };

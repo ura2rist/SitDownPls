@@ -1,0 +1,449 @@
+<%- include('../layout/header.ejs') %>
+	<main>
+		<section class="catalog-block">
+			<div class="wrapper breadcrumb">
+				<ul class="breadcrumb__list">
+					<li class="breadcrumb__element"><a href="#" class="breadcrumb__link">Главная</a></li>
+					<li class="breadcrumb__element"><a href="#" class="breadcrumb__link">Каталог</a></li>
+					<li class="breadcrumb__element"><a href="#" class="breadcrumb__link">Диваны</a></li>
+					<li class="breadcrumb__element"><a href="#" class="breadcrumb__link breadcrumb__link_active">Прямые диваны</a>
+					</li>
+				</ul>
+			</div>
+			<div class="wrapper catalog-block__wrapper">
+				<div class="catalog-block__container">
+					<h2 class="catalog-block__title">
+						<span class="catalog-block__title-desktop">Фильтровать по:</span>
+						<span class="catalog-block__title-mob">Фильтры:</span>
+					</h2>
+					<ul class="catalog-block__filter-list">
+						<li class="catalog-block__filter-element filter catalog-block__filter-category">
+							<h3 class="filter__title">Категория</h3>
+							<div class="filter__content">
+								<ul class="filter__list">
+									<li class="filter__element">
+										<label class="checkbox feedback__agreement">
+											<input type="checkbox" class="checkbox__input form__req-check">
+											<span class="checkbox__check"></span>
+											<span class="checkbox__text">Диваны</span>
+										</label>
+									</li>
+									<li class="filter__element">
+										<label class="checkbox feedback__agreement">
+											<input type="checkbox" class="checkbox__input form__req-check">
+											<span class="checkbox__check"></span>
+											<span class="checkbox__text">Кресла</span>
+										</label>
+									</li>
+									<li class="filter__element">
+										<label class="checkbox feedback__agreement">
+											<input type="checkbox" class="checkbox__input form__req-check">
+											<span class="checkbox__check"></span>
+											<span class="checkbox__text">Пуфы</span>
+										</label>
+									</li>
+									<li class="filter__element">
+										<label class="checkbox feedback__agreement">
+											<input type="checkbox" class="checkbox__input form__req-check">
+											<span class="checkbox__check"></span>
+											<span class="checkbox__text">Кровати</span>
+										</label>
+									</li>
+									<li class="filter__element">
+										<label class="checkbox feedback__agreement">
+											<input type="checkbox" class="checkbox__input form__req-check">
+											<span class="checkbox__check"></span>
+											<span class="checkbox__text">Тумбы</span>
+										</label>
+									</li>
+									<li class="filter__element">
+										<label class="checkbox feedback__agreement">
+											<input type="checkbox" class="checkbox__input form__req-check">
+											<span class="checkbox__check"></span>
+											<span class="checkbox__text">Комоды</span>
+										</label>
+									</li>
+									<li class="filter__element">
+										<label class="checkbox feedback__agreement">
+											<input type="checkbox" class="checkbox__input form__req-check">
+											<span class="checkbox__check"></span>
+											<span class="checkbox__text">Стулья</span>
+										</label>
+									</li>
+									<li class="filter__element">
+										<label class="checkbox feedback__agreement">
+											<input type="checkbox" class="checkbox__input form__req-check">
+											<span class="checkbox__check"></span>
+											<span class="checkbox__text">Столы</span>
+										</label>
+									</li>
+									<li class="filter__element">
+										<label class="checkbox feedback__agreement">
+											<input type="checkbox" class="checkbox__input form__req-check">
+											<span class="checkbox__check"></span>
+											<span class="checkbox__text">Аксессуары</span>
+										</label>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="catalog-block__filter-element filter catalog-block__filter-price">
+							<h3 class="filter__title">Цена</h3>
+							<div class="filter__content">
+								<div class="range">
+									<div class="range__values">
+										<span class="range__values-ot">от</span> <input id="min" type="number" class="range__values-ot-inp"/>
+										<span class="range__values-do">до</span> <input id="max" type="number" class="range__values-do-inp"/>
+									</div>
+									<div class="range__slider">
+										<div id="range"></div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="catalog-block__filter-element filter catalog-block__filter-discount">
+							<h3 class="filter__title">Скидка</h3>
+							<div class="filter__content">
+								<ul class="filter__list">
+									<li class="filter__element">
+										<label class="checkbox feedback__agreement">
+											<input type="checkbox" class="checkbox__input form__req-check">
+											<span class="checkbox__check"></span>
+											<span class="checkbox__text">Более 5 000</span>
+										</label>
+									</li>
+									<li class="filter__element">
+										<label class="checkbox feedback__agreement">
+											<input type="checkbox" class="checkbox__input form__req-check">
+											<span class="checkbox__check"></span>
+											<span class="checkbox__text">Менее 5 000</span>
+										</label>
+									</li>
+									<li class="filter__element">
+										<label class="checkbox feedback__agreement">
+											<input type="checkbox" class="checkbox__input form__req-check">
+											<span class="checkbox__check"></span>
+											<span class="checkbox__text">Не важно</span>
+										</label>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="catalog-block__filter-element filter catalog-block__filter-color">
+							<h3 class="filter__title">Цвет</h3>
+							<div class="filter__content">
+								<ul class="filter__list">
+									<li class="filter__element">
+										<label class="checkbox feedback__agreement">
+											<input type="checkbox" class="checkbox__input form__req-check">
+											<span class="checkbox__check"></span>
+											<span class="checkbox__text">Коричневый</span>
+										</label>
+									</li>
+									<li class="filter__element">
+										<label class="checkbox feedback__agreement">
+											<input type="checkbox" class="checkbox__input form__req-check">
+											<span class="checkbox__check"></span>
+											<span class="checkbox__text">Черный</span>
+										</label>
+									</li>
+									<li class="filter__element">
+										<label class="checkbox feedback__agreement">
+											<input type="checkbox" class="checkbox__input form__req-check">
+											<span class="checkbox__check"></span>
+											<span class="checkbox__text">Бежевый</span>
+										</label>
+									</li>
+									<li class="filter__element">
+										<label class="checkbox feedback__agreement">
+											<input type="checkbox" class="checkbox__input form__req-check">
+											<span class="checkbox__check"></span>
+											<span class="checkbox__text">Серый</span>
+										</label>
+									</li>
+									<li class="filter__element">
+										<label class="checkbox feedback__agreement">
+											<input type="checkbox" class="checkbox__input form__req-check">
+											<span class="checkbox__check"></span>
+											<span class="checkbox__text">Белый</span>
+										</label>
+									</li>
+									<li class="filter__element">
+										<label class="checkbox feedback__agreement">
+											<input type="checkbox" class="checkbox__input form__req-check">
+											<span class="checkbox__check"></span>
+											<span class="checkbox__text">Синий</span>
+										</label>
+									</li>
+									<li class="filter__element">
+										<label class="checkbox feedback__agreement">
+											<input type="checkbox" class="checkbox__input form__req-check">
+											<span class="checkbox__check"></span>
+											<span class="checkbox__text">Оранжевый</span>
+										</label>
+									</li>
+									<li class="filter__element">
+										<label class="checkbox feedback__agreement">
+											<input type="checkbox" class="checkbox__input form__req-check">
+											<span class="checkbox__check"></span>
+											<span class="checkbox__text">Желтый</span>
+										</label>
+									</li>
+									<li class="filter__element">
+										<label class="checkbox feedback__agreement">
+											<input type="checkbox" class="checkbox__input form__req-check">
+											<span class="checkbox__check"></span>
+											<span class="checkbox__text">Зеленый</span>
+										</label>
+									</li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<h1 class="catalog-block__title-main">Каталог</h1>
+				<div class="catalog-block__content">
+					<div class="card catalog-block__card">
+						<span class="card__label rating__label">5,0</span>
+						<img src="../assets/image/rating_1.png" alt="#" class="card__img rating__img">
+						<div class="rating__content">
+							<h3 class="card__title rating__title">Диван кожаный “R-94”</h3>
+							<div class="card__price-wrapp rating__price-wrapp">
+								<p class="card__price rating__price">94 990 руб</p>
+								<p class="card__discount rating__discount"></p>
+							</div>
+							<a href="/product.html" class="card__buy rating__buy button-trans">Купить</a>
+						</div>
+					</div>
+					<div class="card catalog-block__card">
+						<span class="card__label rating__label">4,9</span>
+						<img src="../assets/image/rating_2.png" alt="#" class="card__img rating__img">
+						<div class="rating__content">
+							<h3 class="card__title rating__title">Диван апартековый “T-75”</h3>
+							<div class="card__price-wrapp rating__price-wrapp">
+								<p class="card__price rating__price">69 990 руб</p>
+								<p class="card__discount rating__discount"></p>
+							</div>
+							<a href="/product.html" class="card__buy rating__buy button-trans">Купить</a>
+						</div>
+					</div>
+					<div class="card catalog-block__card">
+						<span class="card__label rating__label">4,8</span>
+						<img src="../assets/image/rating_3.png" alt="#" class="card__img rating__img">
+						<div class="rating__content">
+							<h3 class="card__title rating__title">Диван тканевый “D-31”</h3>
+							<div class="card__price-wrapp rating__price-wrapp">
+								<p class="card__price rating__price">28 490 руб</p>
+								<p class="card__discount rating__discount"></p>
+							</div>
+							<a href="/product.html" class="card__buy rating__buy button-trans">Купить</a>
+						</div>
+					</div>
+					<div class="card catalog-block__card">
+						<span class="card__label rating__label">4,8</span>
+						<img src="../assets/image/rating_4.png" alt="#" class="card__img rating__img">
+						<div class="rating__content">
+							<h3 class="card__title rating__title">Диван велюровый “Y-68”</h3>
+							<div class="card__price-wrapp rating__price-wrapp">
+								<p class="card__price rating__price">22 990 руб</p>
+								<p class="card__discount rating__discount"></p>
+							</div>
+							<a href="/product.html" class="card__buy rating__buy button-trans">Купить</a>
+						</div>
+					</div>
+					<div class="card catalog-block__card">
+						<span class="card__label rating__label">4,8</span>
+						<img src="../assets/image/rating_5.png" alt="#" class="card__img rating__img">
+						<div class="rating__content">
+							<h3 class="card__title rating__title">Диван из шинила “W-95”</h3>
+							<div class="card__price-wrapp rating__price-wrapp">
+								<p class="card__price rating__price">22 990 руб</p>
+								<p class="card__discount rating__discount"></p>
+							</div>
+							<a href="/product.html" class="card__buy rating__buy button-trans">Купить</a>
+						</div>
+					</div>
+					<div class="card catalog-block__card">
+						<span class="card__label rating__label">4,8</span>
+						<img src="../assets/image/rating_6.png" alt="#" class="card__img rating__img">
+						<div class="rating__content">
+							<h3 class="card__title rating__title">Диван флоковый “G-41”</h3>
+							<div class="card__price-wrapp rating__price-wrapp">
+								<p class="card__price rating__price">17 990 руб</p>
+								<p class="card__discount rating__discount"></p>
+							</div>
+							<a href="/product.html" class="card__buy rating__buy button-trans">Купить</a>
+						</div>
+					</div>
+					<div class="card catalog-block__card">
+						<span class="card__label rating__label">4,8</span>
+						<img src="../assets/image/rating_7.png" alt="#" class="card__img rating__img">
+						<div class="rating__content">
+							<h3 class="card__title rating__title">Диван шиниловый “V-43”</h3>
+							<div class="card__price-wrapp rating__price-wrapp">
+								<p class="card__price rating__price">19 990 руб</p>
+								<p class="card__discount rating__discount"></p>
+							</div>
+							<a href="/product.html" class="card__buy rating__buy button-trans">Купить</a>
+						</div>
+					</div>
+					<div class="card catalog-block__card">
+						<span class="card__label rating__label">4,7</span>
+						<img src="../assets/image/rating_8.png" alt="#" class="card__img rating__img">
+						<div class="rating__content">
+							<h3 class="card__title rating__title">Диван велюровый “S-99”</h3>
+							<div class="card__price-wrapp rating__price-wrapp">
+								<p class="card__price rating__price">19 990 руб</p>
+								<p class="card__discount rating__discount"></p>
+							</div>
+							<a href="/product.html" class="card__buy rating__buy button-trans">Купить</a>
+						</div>
+					</div>
+					<div class="card catalog-block__card">
+						<span class="card__label rating__label">4,7</span>
+						<img src="../assets/image/catalog_9.png" alt="#" class="card__img rating__img">
+						<div class="rating__content">
+							<h3 class="card__title rating__title">Диван из кожзама “F-85”</h3>
+							<div class="card__price-wrapp rating__price-wrapp">
+								<p class="card__price rating__price">26 990 руб</p>
+								<p class="card__discount rating__discount"></p>
+							</div>
+							<a href="/product.html" class="card__buy rating__buy button-trans">Купить</a>
+						</div>
+					</div>
+					<div class="card catalog-block__card">
+						<span class="card__label rating__label">4,6</span>
+						<img src="../assets/image/catalog_10.png" alt="#" class="card__img rating__img">
+						<div class="rating__content">
+							<h3 class="card__title rating__title">Диван флоковый “H-64”</h3>
+							<div class="card__price-wrapp rating__price-wrapp">
+								<p class="card__price rating__price">25 990 руб</p>
+								<p class="card__discount rating__discount"></p>
+							</div>
+							<a href="/product.html" class="card__buy rating__buy button-trans">Купить</a>
+						</div>
+					</div>
+					<div class="card catalog-block__card">
+						<span class="card__label rating__label">4,6</span>
+						<img src="../assets/image/catalog_11.png" alt="#" class="card__img rating__img">
+						<div class="rating__content">
+							<h3 class="card__title rating__title">Диван флоковый “H-58”</h3>
+							<div class="card__price-wrapp rating__price-wrapp">
+								<p class="card__price rating__price">23 990 руб</p>
+								<p class="card__discount rating__discount"></p>
+							</div>
+							<a href="/product.html" class="card__buy rating__buy button-trans">Купить</a>
+						</div>
+					</div>
+					<div class="card catalog-block__card">
+						<span class="card__label rating__label">4,6</span>
+						<img src="../assets/image/catalog_12.png" alt="#" class="card__img rating__img">
+						<div class="rating__content">
+							<h3 class="card__title rating__title">Диван из кожзама “R-43”</h3>
+							<div class="card__price-wrapp rating__price-wrapp">
+								<p class="card__price rating__price">33 990 руб</p>
+								<p class="card__discount rating__discount"></p>
+							</div>
+							<a href="/product.html" class="card__buy rating__buy button-trans">Купить</a>
+						</div>
+					</div>
+					<div class="card catalog-block__card">
+						<span class="card__label rating__label">4,6</span>
+						<img src="../assets/image/catalog_13.png" alt="#" class="card__img rating__img">
+						<div class="rating__content">
+							<h3 class="card__title rating__title">Диван из шинила “С-42”</h3>
+							<div class="card__price-wrapp rating__price-wrapp">
+								<p class="card__price rating__price">18 990 руб</p>
+								<p class="card__discount rating__discount"></p>
+							</div>
+							<a href="/product.html" class="card__buy rating__buy button-trans">Купить</a>
+						</div>
+					</div>
+					<div class="card catalog-block__card">
+						<span class="card__label rating__label">4,6</span>
+						<img src="../assets/image/catalog_14.png" alt="#" class="card__img rating__img">
+						<div class="rating__content">
+							<h3 class="card__title rating__title">Диван велюровый “U-58”</h3>
+							<div class="card__price-wrapp rating__price-wrapp">
+								<p class="card__price rating__price">21 990 руб</p>
+								<p class="card__discount rating__discount"></p>
+							</div>
+							<a href="/product.html" class="card__buy rating__buy button-trans">Купить</a>
+						</div>
+					</div>
+					<div class="card catalog-block__card">
+						<span class="card__label rating__label">4,5</span>
+						<img src="../assets/image/catalog_15.png" alt="#" class="card__img rating__img">
+						<div class="rating__content">
+							<h3 class="card__title rating__title">Диван флоковый “F-41”</h3>
+							<div class="card__price-wrapp rating__price-wrapp">
+								<p class="card__price rating__price">17 990 руб</p>
+								<p class="card__discount rating__discount"></p>
+							</div>
+							<a href="/product.html" class="card__buy rating__buy button-trans">Купить</a>
+						</div>
+					</div>
+					<div class="card catalog-block__card">
+						<span class="card__label rating__label">4,5</span>
+						<img src="../assets/image/catalog_16.png" alt="#" class="card__img rating__img">
+						<div class="rating__content">
+							<h3 class="card__title rating__title">Диван велюровый “R-85”</h3>
+							<div class="card__price-wrapp rating__price-wrapp">
+								<p class="card__price rating__price">34 990 руб</p>
+								<p class="card__discount rating__discount"></p>
+							</div>
+							<a href="/product.html" class="card__buy rating__buy button-trans">Купить</a>
+						</div>
+					</div>
+					<div class="card catalog-block__card">
+						<span class="card__label rating__label">4,5</span>
+						<img src="../assets/image/catalog_17.png" alt="#" class="card__img rating__img">
+						<div class="rating__content">
+							<h3 class="card__title rating__title">Диван велюровый “S-44”</h3>
+							<div class="card__price-wrapp rating__price-wrapp">
+								<p class="card__price rating__price">19 990 руб</p>
+								<p class="card__discount rating__discount"></p>
+							</div>
+							<a href="/product.html" class="card__buy rating__buy button-trans">Купить</a>
+						</div>
+					</div>
+					<div class="card catalog-block__card">
+						<span class="card__label rating__label">4,5</span>
+						<img src="../assets/image/catalog_18.png" alt="#" class="card__img rating__img">
+						<div class="rating__content">
+							<h3 class="card__title rating__title">Диван из шинила “С-80”</h3>
+							<div class="card__price-wrapp rating__price-wrapp">
+								<p class="card__price rating__price">20 990 руб</p>
+								<p class="card__discount rating__discount"></p>
+							</div>
+							<a href="/product.html" class="card__buy rating__buy button-trans">Купить</a>
+						</div>
+					</div>
+				</div>
+				<div class="catalog-block__pagination">
+					<ul class="pagination">
+						<li class="pagination__element pagination__element_active" tabindex="0">1</li>
+						<li class="pagination__element" tabindex="0">2</li>
+						<li class="pagination__element" tabindex="0">3</li>
+					</ul>
+				</div>
+				<div class="catalog-block__banner">
+					<div class="catalog-block__banner-wrapp">
+						<img src="../assets/image/catalog_banner.png" alt="" class="catalog-block__banner-img">
+					</div>
+					<div class="catalog-block__banner-content">
+						<h2 class="middle-banner__title catalog-block__banner-title">Оксфорд 1950</h2>
+						<p class="middle-banner__text catalog-block__banner-text">Новая коллекция изысканных кресел</p>
+						<a href="#" class="category__inner">В каталог <span class="category__arrow"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_34405_2350)">
+                <circle cx="11" cy="11" r="10" stroke="#A65CF0" stroke-width="2"></circle>
+                <path d="M9.625 7.5625L13.0625 11L9.625 14.4375" stroke="#A65CF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </g>
+              </svg></span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<%- include('../layout/footer.ejs') %>
