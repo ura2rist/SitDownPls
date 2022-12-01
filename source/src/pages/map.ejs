@@ -1,0 +1,25 @@
+<%- include('../layout/header.ejs') %>
+  <main>
+    <section class="contact">
+      <div class="wrapper breadcrumb">
+				<ul class="breadcrumb__list">
+					<li class="breadcrumb__element"><a href="#" class="breadcrumb__link">Главная</a></li>
+					<li class="breadcrumb__element"><a href="#" class="breadcrumb__link breadcrumb__link_active">Контакты</a>
+					</li>
+				</ul>
+			</div>
+      <div class="wrapper">
+        <h1 class="contact__title">Контакты</h1>
+        <div class="contact__form">
+          <input type="text" placeholder="Поиск магазина" class="form__input contact__input">
+          <input type="button" value="Поиск" class="button contact__button">
+        </div>
+      </div>
+    </section>
+    <section class="map">
+      <div class="wrapper">
+        <div id="map-1"></div>
+      </div>
+    </section>
+  </main>
+<%- include('../layout/footer.ejs') %>
