@@ -44,6 +44,7 @@
   color: $secondary;
   font-size: $size-second;
   outline: none;
+  transition: all 0.4s ease;
 
   &__icon {
     margin-right: 5px;
@@ -77,6 +78,11 @@
   &__select {
     cursor: pointer;
     outline: none;
+    transition: all 0.4s ease;
+
+    .dropdown__enter {
+      transition: all 0.4s ease;
+    }
 
     &:hover .dropdown__enter{
       color: $primary_light;
@@ -170,6 +176,7 @@
       color: $grey;
       font-size: $size-second;
       outline: none;
+      transition: all 0.4s ease;
 
       &:hover {
         color: $primary;
@@ -293,6 +300,7 @@
       position: relative;
       outline: none;
       z-index: 1;
+      transition: all 0.4s ease;
 
       &:hover {
         color: $primary;
@@ -337,6 +345,7 @@
       box-sizing: border-box;
       border: 2px solid $grey_light;
       background-color: $grey_light;
+      transition: all 0.4s ease;
 
       &:hover {
         background-color: $md_grey;
@@ -381,6 +390,7 @@
       border-left: none;
       border-radius: 0 10px 10px 0;
       position: relative;
+      transition: all 0.4s ease;
 
       &:hover {
         border-color: $primary;
@@ -531,6 +541,7 @@
     font-size: 16px;
     font-weight: bold;
     outline: none;
+    transition: all 0.4s ease;
 
     &:hover {
       background-color: $primary_light;
@@ -669,7 +680,6 @@
   }
 
   &__swiper-button-prev svg {
-    transform: rotate(180deg);
 
     & circle,
     & path {
@@ -678,6 +688,7 @@
   }
 
   &__swiper-button-next svg {
+    transform: rotate(180deg);
     
     & circle,
     & path {
@@ -691,7 +702,17 @@
     cursor: pointer;
   }
 
+  &__swiper-button-next circle,
+  &__swiper-button-prev circle,
+  &__swiper-button-next path,
+  &__swiper-button-prev path {
+    transition: all 0.4s ease;
+  }
+
   &__swiper-button-next {
+    order: 1;
+  }
+  &__swiper-button-prev {
     margin-right: 13px;
   }
 
@@ -857,6 +878,7 @@
   outline: none;
   display: block;
   cursor: pointer;
+  transition: all 0.4s ease;
 
   &:hover {
     background-color: $primary_light;
@@ -881,6 +903,7 @@
   border-radius: 10px;
   color: $primary;
   outline: none;
+  transition: all 0.4s ease;
 
   &:hover {
     color: #ffffff;
@@ -994,6 +1017,7 @@
     font-size: 14px;
     color: $grey;
     outline: none;
+    transition: all 0.4s ease;
 
     &:hover {
       color: $primary_light;
@@ -1025,6 +1049,7 @@
     width: max-content;
     color: $primary;
     outline: none;
+    transition: all 0.4s ease;
 
     & .category__arrow {
       position: absolute;
@@ -1081,7 +1106,6 @@
   }
 
   &__swiper-button-prev svg {
-    transform: rotate(180deg);
 
     & circle,
     & path {
@@ -1090,6 +1114,7 @@
   }
 
   &__swiper-button-next svg {
+    transform: rotate(180deg);
     
     & circle,
     & path {
@@ -1104,7 +1129,18 @@
   }
 
   &__swiper-button-next {
+    order: 1;
+  }
+
+  &__swiper-button-prev {
     margin-right: 13px;
+  }
+
+  &__swiper-button-next circle,
+  &__swiper-button-prev circle,
+  &__swiper-button-next path,
+  &__swiper-button-prev path {
+    transition: all 0.4s ease;
   }
 
   &__swiper-button-next:hover circle,
@@ -1304,6 +1340,7 @@
     padding: 15px 18px;
     background-color: $grey_light;
     border-radius: 10px;
+    transition: all 0.4s ease;
 
     &:hover {
       background-color: $md_grey;
@@ -1338,12 +1375,11 @@
     border-radius: 50%;
     width: 14px;
     height: 14px;
-
     
-  &:hover + .tooltip__popup,
-  &:focus + .tooltip__popup {
-    opacity: 1;
-  }
+    &:hover + .tooltip__popup,
+    &:focus + .tooltip__popup {
+      opacity: 1;
+    }
   }
 
   &:hover &__marker,
@@ -1475,11 +1511,15 @@
   background-color: rgba(133, 133, 133, 0.5);
   width: 100%;
   height: 100%;
-  display: none;
+  display: flex;
+  opacity: 0;
   z-index: 100;
+  transform: scale(0);
+  transition: all 0.4s ease;
 
   &_active {
-    display: flex;
+    opacity: 1;
+    transform: scale(1);
   }
 
   &__wrapp {
@@ -1711,6 +1751,7 @@
     border-radius: 10px;
     padding: 6px 9px;
     cursor: pointer;
+    transition: all 0.4s ease;
 
     &:last-child {
       display: none;
@@ -2107,6 +2148,13 @@
 
   }
 
+  &__swiper-button-next circle,
+  &__swiper-button-prev circle,
+  &__swiper-button-next path,
+  &__swiper-button-prev path {
+    transition: all 0.4s ease;
+  }
+
   &__swiper-button-next:hover circle,
   &__swiper-button-prev:hover circle {
     fill: $primary;
@@ -2373,6 +2421,13 @@
     width: 100%;
     margin-right: 29px;
   }
+}
+
+.error-form,
+.error-form-mail {
+  color: $secondary_shade;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
 
 @media screen and (max-width: 1200px) {

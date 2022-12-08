@@ -218,11 +218,23 @@ window.addEventListener('DOMContentLoaded', function() {
 
   function checkEmptyInput(reqForm) {
     let status = true;
+    const errorText = document.querySelectorAll('.error-form');
+
+    if(errorText.length) {
+      errorText.forEach((item) => {
+        item.remove();
+      });
+    }
 
     reqForm.forEach(function(item) {
       if(item.classList.contains('form__input_error')) item.classList.remove('form__input_error');
 
       if(item.value.trim() === '') {
+        const p = document.createElement('p');
+        p.classList.add('error-form');
+        p.innerHTML = 'Пустое поле';
+
+        item.before(p);
         item.classList.add('form__input_error');
 
         status = false;
@@ -249,7 +261,20 @@ window.addEventListener('DOMContentLoaded', function() {
 
     const address = email.value;
 
+    const errorText = document.querySelectorAll('.error-form-mail');
+
+    if(errorText.length) {
+      errorText.forEach((item) => {
+        item.remove();
+      });
+    }
+
     if(reg.test(address) == false) {
+      const p = document.createElement('p');
+      p.classList.add('error-form-mail');
+      p.innerHTML = 'Недопустимый формат';
+
+      email.before(p);
       email.classList.add('form__input_error');
 
       return false;
