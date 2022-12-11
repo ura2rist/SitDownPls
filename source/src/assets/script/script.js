@@ -6,6 +6,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/grid'
 import * as url from '../image/map.svg';
+import tippy from 'tippy.js';
+import 'tippy.js/dist/tippy.css';
 
 window.addEventListener('DOMContentLoaded', function() {
 
@@ -97,7 +99,6 @@ window.addEventListener('DOMContentLoaded', function() {
     slidesPerView: 1,
     spaceBetween: 32,
     slidesPerGroup: 1,
-    loop: true,
     loopFillGroupWithBlank: true,
     navigation: {
       nextEl: ".special__swiper-button-next",
@@ -143,7 +144,6 @@ window.addEventListener('DOMContentLoaded', function() {
     slidesPerView: 1,
     spaceBetween: 32,
     slidesPerGroup: 1,
-    loop: true,
     loopFillGroupWithBlank: true,
     navigation: {
       nextEl: ".useful__swiper-button-next",
@@ -626,4 +626,11 @@ window.addEventListener('DOMContentLoaded', function() {
         myMap.geoObjects.add(placemark).add(myPlacemarkWithContent);
     }
   }
+
+  // Тултип
+
+  tippy('#tooltip', {
+    content: "<span class='tooltip__popup'>Реплицированные с зарубежных источников, исследования формируют глобальную сеть.</span>",
+    allowHTML: true,
+  });
 });

@@ -1375,11 +1375,6 @@
     border-radius: 50%;
     width: 14px;
     height: 14px;
-    
-    &:hover + .tooltip__popup,
-    &:focus + .tooltip__popup {
-      opacity: 1;
-    }
   }
 
   &:hover &__marker,
@@ -1394,16 +1389,12 @@
 
   &__popup {
     padding: 10px;
-    position: absolute;
-    top: 0;
-    left: 50%;
+    display: block;
     width: 160px;
     background-color: $black;
     text-align: center;
     color: #ffffff;
     font-size: 9px;
-    transform: translateX(-50%) translateY(-130%);
-    opacity: 0;
     transition: opacity 0.4s ease;
 
     &::after {
